@@ -1,0 +1,36 @@
+pipeline {
+
+  environment {
+    registry = "localhost:5000"
+  }
+
+  agent any
+  
+  stages {
+    stage('Cloning Git') {
+      steps {
+        git 'https://github.com/mcj-krs/docker-workshop.git'
+      }
+    }
+
+    stage('Building image') {
+      steps{
+        script {
+          dir("sample-docker-project") {       
+             dockerImage = docker.build registry + "/docker-ci:$BUILD_NUMBER"
+          }
+        }
+      }
+    }
+    
+    stage('Deploy Image') {
+      steps{
+         script {
+            steps.sh("docker push " + registry + "/docker-ci:$BUILD_NUMBER")
+          }
+        }
+         
+     }
+  }
+}
+

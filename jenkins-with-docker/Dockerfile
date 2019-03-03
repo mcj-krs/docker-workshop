@@ -16,6 +16,7 @@ apt-get update && \
 apt-get -y install docker-ce
 
 RUN apt-get install -y docker-ce
+RUN mkdir -p /etc/docker/ && echo "{  \"insecure-registries\" : [\"172.17.0.1:5000\"] }" > /etc/docker/daemon.json 
 RUN usermod -a -G docker jenkins
 
 USER jenkins
