@@ -11,7 +11,6 @@ A challange
 5. Build your docker image using a Jenkins pipeline
 
 
-===========================================
 Managing containers commnads
 ===========================================
 
@@ -50,7 +49,6 @@ $ docker kill container_name
 $ docker rm container_name
 
 
-===========================================
 Building docker image
 ===========================================
 
@@ -71,14 +69,12 @@ Interesting images: popular applications (nginx, mysql, etc.); linux distros: ce
 
 
 
-===========================================
 Running jenkins:
 ===========================================
 docker run -d -v jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts
 
  
 
-===========================================
  Running repository:
 ===========================================
 
@@ -96,7 +92,6 @@ docker tag ubuntu:16.04 localhost:5000/my-ubuntu
 docker push localhost:5000/my-ubuntu
 
 
-===========================================
 Running Jenkins with Docker build support
 ===========================================
 
