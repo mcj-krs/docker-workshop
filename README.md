@@ -17,28 +17,35 @@ Managing containers commnads
 $ docker run container:version
 
 [overvrite CMD with /bin/sh]
+
 $ docker run -ti container:version /bin/sh
 
 
 [mount volume]
+
 $ docker run -v local_dir:/container_dir/ container:version 
 
 
 [expose ports]
+
 $ docker run p 50000:50000 container:version 
 
 
 [add custom name to container]
+
 $ docker run -n my_name container:version
 
 [clean when container is done]
+
 $ docker run --rm container:version
 
 
 [daemon]
+
 $ docker run -b container:version
 
 [listing running containers]
+
 $ docker ps
 $ docker ps -a
 
